@@ -9,7 +9,7 @@
 
 def isPalindrome(s):
     s = s.lower()
-    modified_string = ""
+    modified_string = " "
     
     for char in s:
         if char.isalnum():
