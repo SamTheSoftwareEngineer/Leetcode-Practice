@@ -4,27 +4,14 @@ The function should return the index of num in the array. If the value is not fo
 # Time Complexity Constraint: O log N
 
 # Approach:
-# Since the array is sorted, we know that all the numbers occur in ascending order which menas we can use binary
-# search to eliminate some of the numbers that are less than or greater than our target number
-
-# First, we initialize two pointers on either side of the arr
-# Then we calculate our midpoint (left + right) // 2
-# If our midpoint happens to be the number, we return it
-# Otherwise, if our midpoint is less than the number, we know we have to move our left pointer to the right
-# If the midpoint is greater than the number, we move our right pointer to the left 
-
+# In our output, the array is no longer sorted since it has been rotated, so we can'r use binary search here
+# Using a loop, we can check each value in the arr and see if it matches the target, if it does we return the index 
+# Otherwise we return -1 
 def find_rotated_index(list, target):
-    left = 0
-    right = len(list) - 1
 
-    while left <= right:
-        mid = (left + right) // 2 
-        if list[mid] == target:
-            return mid
-        elif list[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1 
+    for i in range(len(list)):
+        if list[i] == target:
+            return i 
     
     return -1 
 
